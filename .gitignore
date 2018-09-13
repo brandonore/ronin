@@ -1,0 +1,6 @@
+.vscode
+node_modules
+src/fa
+src/webfonts
+src/img
+css/

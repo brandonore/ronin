@@ -1,0 +1,18 @@
+{
+  "name": "ronin",
+  "version": "1.0.0",
+  "description": "Simple Invoice Generator!",
+  "main": "main.js",
+  "author": "Brandon Ore",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^2.0.8",
+    "electron-reload": "^1.2.5",
+    "electron-titlebar-windows": "^3.0.0",
+    "jspdf": "^1.4.1"
+  },
+  "devDependencies": {}
+}

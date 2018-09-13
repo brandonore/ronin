@@ -1,0 +1,170 @@
+@import "_reset.scss";
+@import "_variables.scss";
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background: #fff;
+    font-size: 62.5%;
+}
+
+h1 {
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.top-section {
+    margin-top: 25px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    // background: #222;
+    // border-top: solid 1px $dBorder;
+    border-bottom: solid 1px $dBorder;
+    height: 400px;
+}
+
+.mid-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-col-1, .top-col-2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-col-2 {
+    align-items: flex-end;
+}
+
+#img-select {
+    position: relative;
+    background-image: url('');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F8F9F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px $lBorder;
+    width: 250px;
+    height: 150px;
+}
+
+#file {
+    display: none;
+}
+
+.fa-upload {
+    font-size: 4rem;
+    color: $lBorder;
+    transition: all .2s linear;
+}
+
+.fa-upload:hover {
+    cursor: pointer;
+    color: darken($lBorder, 20%);
+}
+
+#remove-img {
+    background: $dBorder;
+    border: none;
+    border-radius: 4px;
+    display: none;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    transition: all .2s linear;
+    > i {
+        font-size: 1.6rem;
+        color: #fff;
+    }
+}
+
+#remove-img:hover {
+    background: #f62459;
+    cursor: pointer;
+}
+
+.inv, #inv-num {
+    background: none;
+    text-decoration: none;
+    padding-right: 10px;
+    transition: all .2s linear;
+    text-align: right;
+    color: $main-dark;
+}
+
+.inv {
+    border: 1px solid $lBorder;
+    width: 95%;
+    height: 55px;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+
+.inv-num-group {
+    position: relative;
+    background: none;
+    text-decoration: none;
+    border: 1px solid $lBorder;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    > span {
+        position: absolute;
+        border-right: 1px solid $lBorder;
+        height: 100%;
+        font-size: 1.1rem;
+        padding: 10px 12px;
+        background-color: #F8F9F9;
+    }
+
+}
+
+#inv-num {
+    border: none;
+    border-left: 1px solid $lBorder;
+    height: 35px;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.inv:hover, .inv:focus {
+    border: 1px solid $lBorder;
+    border-radius: 4px;
+    outline: none;
+}
+
+#gen {
+    margin-top: 100px;
+    padding: 10px 25px;
+    font-weight: 300;
+    color: $main-green;
+    background: none;
+    border: 2px solid $main-green;
+    font-size: 1.5rem;
+    transition: all .2s linear;
+}
+
+#gen:focus, #remove-img {
+    outline: none;
+}
+
+#gen:hover {
+    background: $main-green;
+    color: #fff;
+    cursor: pointer;
+}
