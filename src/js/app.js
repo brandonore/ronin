@@ -4,6 +4,7 @@
 const ElectronTitlebarWindows = require('electron-titlebar-windows');
 const titlebar = new ElectronTitlebarWindows({draggable: true, backgroundColor: '#03c9a9'});
 const jsPDF = require('jspdf');
+const flatpickr = require('flatpickr');
 let imgData = '';
 let width, height;
 let pdf = new jsPDF('p', 'mm', 'a4');
@@ -16,6 +17,9 @@ titlebar.on('close', function(e) {
 /*---------------------------------------
 * Handle clicks
 * ---------------------------------------*/
+$('.cal').flatpickr({minDate: 'today', dateFormat: 'Y-m-d',
+                    altInput: true, altFormat: 'F j, Y'});
+
 //generate pdf on button click
 $('#gen').on('click', () => {
     printPDF();

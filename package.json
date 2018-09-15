@@ -12,6 +12,7 @@
     "electron": "^2.0.8",
     "electron-reload": "^1.2.5",
     "electron-titlebar-windows": "^3.0.0",
+    "flatpickr": "^4.5.2",
     "jspdf": "^1.4.1"
   },
   "devDependencies": {}

@@ -3,6 +3,7 @@
 
 * {
     font-family: 'Raleway', sans-serif;
+    color: $dBorder;
 }
 
 html {
@@ -40,16 +41,17 @@ input, textarea {
 }
 
 .top-col-1, .top-col-2 {
-    width: 50%;
     display: flex;
     flex-direction: column;
-}
-
-.top-col-1 {
     justify-content: space-between;
 }
 
+.top-col-1 {
+    width: 45%;
+}
+
 .top-col-2 {
+    width: 50%;
     align-items: flex-end;
 }
 
@@ -170,7 +172,7 @@ input, textarea {
 
 .text-billto {
     border: 1px solid transparent;
-    margin-bottom: -19px;
+    margin-bottom: -29px;
     height: 35px;
     font-weight: 400;
     font-size: 1rem;
@@ -185,6 +187,47 @@ input, textarea {
     height: 75px;
     padding-top: 8px;
     resize: none;
+}
+
+.dp-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    > div input, div span {
+        background: none;
+        height: 35px;
+        transition: all .2s linear;
+        font-size: 1rem;
+    }
+    > div input:first-child {
+        border: 1px solid transparent;
+        text-align: right;
+        padding: 4px 8px 0 0;
+    }
+    > div input:first-child:hover {
+        cursor: pointer;
+        border: 1px solid $lBorder;
+        border-radius: 4px;
+        outline: none;
+    }
+    > div input:nth-child(2),
+    .cal {
+        cursor: pointer;
+        border: 1px solid $lBorder;
+        padding-left: 8px;
+    }
+    > div span {
+        padding-left: 8px;
+    }
+    .balance-group {
+        font-family: 'Raleway', sans-serif;
+        background: lighten($lBorder, 15%);
+        border-radius: 4px;
+        font-weight: 600;
+        > input {
+            font-weight: 600;
+        }
+    }
 }
 
 #gen {

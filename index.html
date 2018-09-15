@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700,800" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,700" rel="stylesheet">
     <link href="src/fa/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -28,6 +30,24 @@
             <div class="inv-num-group">
                 <span>#</span>
                 <input type="text" name="inv-num" id="inv-num" value="000-001">
+            </div>
+            <div class="dp-group">
+                <div class="date-group">
+                    <input type="text" class="date" value="Date" />
+                    <input type="text" class="cal" data-input />
+                </div>
+                <div class="pterm-group">
+                    <input type="text" value="Payment Terms">
+                    <input type="text">
+                </div>
+                <div class="due-group">
+                    <input type="text" value="Due Date">
+                    <input type="text" class="cal" data-input />
+                </div>
+                <div class="balance-group">
+                    <input type="text" value="Balance Due">
+                    <span>$500.50</span>
+                </div>
             </div>
         </div>
     </div>
