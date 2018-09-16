@@ -8,6 +8,18 @@ const flatpickr = require('flatpickr');
 let imgData = '';
 let width, height;
 let pdf = new jsPDF('p', 'mm', 'a4');
+let fpickrOptions = {
+    minDate: 'today',
+    dateFormat: 'Y-m-d',
+    altInput: true,
+    altFormat: 'F j, Y'
+}
+const lineItem = `<div class="divider line-item">
+                    <input type="text" placeholder="Enter description of product or service..." />
+                    <input type="text" value="1" />
+                    <input type="text" value="0" />
+                    <span>$0.00</span>
+                </div>`
 
 titlebar.appendTo(document.getElementById('title-bar'));
 titlebar.on('close', function(e) {
@@ -17,8 +29,18 @@ titlebar.on('close', function(e) {
 /*---------------------------------------
 * Handle clicks
 * ---------------------------------------*/
-$('.cal').flatpickr({minDate: 'today', dateFormat: 'Y-m-d',
-                    altInput: true, altFormat: 'F j, Y'});
+//create instance of flatpickr
+$('.cal').flatpickr(fpickrOptions);
+
+//add line item on btn click
+$('#line-item-btn').off('click').on('click', () => {
+    $(lineItem).insertBefore('#line-item-btn');
+})
+
+$('#rate-input').keyup(() => {
+    let val = $('#rate-input').val();
+    $('#rate-span').html(`$${val}`); 
+})
 
 //generate pdf on button click
 $('#gen').on('click', () => {

@@ -1,5 +1,7 @@
 @import "_reset.scss";
 @import "_variables.scss";
+@import "_midsection.scss";
+@import "_bottomsection.scss";
 
 * {
     font-family: 'Raleway', sans-serif;
@@ -30,14 +32,7 @@ input, textarea {
     padding: 25px;
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 1px $dBorder;
     height: 420px;
-}
-
-.mid-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .top-col-1, .top-col-2 {
@@ -105,6 +100,12 @@ input, textarea {
     cursor: pointer;
 }
 
+.inv-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .inv, #inv-num {
     background: none;
     text-decoration: none;
@@ -131,6 +132,7 @@ input, textarea {
     border-radius: 4px;
     white-space: nowrap;
     overflow: hidden;
+    width: 50%;
     > span {
         position: absolute;
         border-right: 1px solid $lBorder;
@@ -228,26 +230,4 @@ input, textarea {
             font-weight: 600;
         }
     }
-}
-
-#gen {
-    margin-top: 100px;
-    padding: 10px 25px;
-    font-weight: 300;
-    color: $main-green;
-    background: none;
-    border: 2px solid $main-green;
-    font-size: 1.5rem;
-    transition: all .2s linear;
-}
-
-#gen:focus, #remove-img, 
-input:focus, textarea:focus {
-    outline: none;
-}
-
-#gen:hover {
-    background: $main-green;
-    color: #fff;
-    cursor: pointer;
 }

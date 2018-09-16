@@ -26,10 +26,12 @@
             <textarea type="text" rows="4" class="text-to" placeholder="Who is this being sent to?"></textarea>
         </div>
         <div class="top-col-2">
-            <input type="text" name="inv" class="inv" value="INVOICE">
-            <div class="inv-num-group">
-                <span>#</span>
-                <input type="text" name="inv-num" id="inv-num" value="000-001">
+            <div class="inv-group">
+                <input type="text" name="inv" class="inv" value="INVOICE">
+                <div class="inv-num-group">
+                    <span>#</span>
+                    <input type="text" name="inv-num" id="inv-num" value="000-001">
+                </div>
             </div>
             <div class="dp-group">
                 <div class="date-group">
@@ -52,6 +54,21 @@
         </div>
     </div>
     <div class="mid-section">
+        <div class="divider" id="divider">
+            <input type="text" value="Item" />
+            <input type="text" value="Quantity" />
+            <input type="text" value="Rate" />
+            <input type="text" value="Amount" />
+        </div>
+        <div class="divider line-item">
+                <input type="text" placeholder="Enter description of product or service..." />
+                <input type="text" value="1" />
+                <input type="text" id="rate-input" value="0" />
+                <span id="rate-span">$0.00</span>
+        </div>
+        <button id="line-item-btn"><i class="far fa-plus"></i> Line Item</button>
+    </div>
+    <div class="bottom-section">
         <button id="gen">Generate!</button>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
