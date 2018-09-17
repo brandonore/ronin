@@ -96,7 +96,7 @@ input, textarea {
 }
 
 #remove-img:hover {
-    background: #f62459;
+    background: $main-red;
     cursor: pointer;
 }
 
@@ -200,6 +200,7 @@ input, textarea {
         height: 35px;
         transition: all .2s linear;
         font-size: 1rem;
+        margin-bottom: 4px;
     }
     > div input:first-child {
         border: 1px solid transparent;
@@ -216,7 +217,7 @@ input, textarea {
     .cal {
         cursor: pointer;
         border: 1px solid $lBorder;
-        padding-left: 8px;
+        padding: 4px 0 0 8px;
     }
     > div span {
         padding-left: 8px;

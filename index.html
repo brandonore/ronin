@@ -59,12 +59,14 @@
             <input type="text" value="Quantity" />
             <input type="text" value="Rate" />
             <input type="text" value="Amount" />
+            <span id="close-btn"></span>
         </div>
-        <div class="divider line-item">
-                <input type="text" placeholder="Enter description of product or service..." />
-                <input type="text" value="1" />
-                <input type="text" id="rate-input" value="0" />
-                <span id="rate-span">$0.00</span>
+        <div class="line-item">
+            <input type="text" class="i1" placeholder="Description of product or service..." />
+            <input type="text" class="i1" value="1" />
+            <input type="text" class="i1" id="rate-input" value="0" />
+            <div id="rate-span" class="i1">$0.00</div>
+            <span class="i1"><i class="fal fa-times close-btn"></i></span>
         </div>
         <button id="line-item-btn"><i class="far fa-plus"></i> Line Item</button>
     </div>

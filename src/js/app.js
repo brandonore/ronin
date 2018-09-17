@@ -14,11 +14,12 @@ let fpickrOptions = {
     altInput: true,
     altFormat: 'F j, Y'
 }
-const lineItem = `<div class="divider line-item">
-                    <input type="text" placeholder="Enter description of product or service..." />
+const lineItem = `<div class="line-item">
+                    <input type="text" placeholder="Description of product or service..." />
                     <input type="text" value="1" />
-                    <input type="text" value="0" />
-                    <span>$0.00</span>
+                    <input type="text" id="rate-input" value="0" />
+                    <div id="rate-span">$0.00</div>
+                    <span><i class="fal fa-times close-btn"></i></span>
                 </div>`
 
 titlebar.appendTo(document.getElementById('title-bar'));

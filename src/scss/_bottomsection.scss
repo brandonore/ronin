@@ -2,16 +2,17 @@
     display: flex;
     justify-content: center;
 }
+
 #gen {
     margin-top: 150px;
-    padding: 10px 25px;
-    font-weight: 300;
+    padding: 10px 20px;
+    font-weight: 400;
     color: $main-green;
     background: none;
     border: 2px solid $main-green;
     font-size: 1.5rem;
     transition: all .2s linear;
-    width: 150px;
+    // width: 150px;
 }
 
 #gen:focus, #remove-img, 
