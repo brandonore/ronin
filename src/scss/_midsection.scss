@@ -12,20 +12,28 @@
     border-radius: 4px;
     > input, span, div {
         color: #fff;
+        text-align: right;
         font-size: 1rem;
         font-weight: 300;
         height: 35px;
         background: none;
-        padding-left: 8px;
+        padding-right: 8px;
         transition: all .2s linear;
         border: none;
         margin: 2px;
     }
-    > input, div {
+    > .itm-d {
+        text-align: left;
+        padding-left: 8px;
+    }
+    > input {
         width: 20%;
     }
+    > div, .amt-d {
+        width: 25%;
+    }
     > input:first-child {
-        width: 90%;
+        width: 85%;
     }
     > input:hover {
         cursor: pointer;
@@ -36,7 +44,6 @@
         > i {
             font-size: 1.5rem;
             color: $main-dark;
-            transition: all .2s linear;
         }
         > i:hover {
             cursor: pointer;
@@ -55,9 +62,15 @@
         border: 1px solid $lBorder;
     }
     > div, span {
+        font-family: 'Raleway', sans-serif;
         display: flex;
         align-items: center;
         border: none;
+    }
+    > #rate-span {
+        display: flex;
+        text-align: right;
+        justify-content: flex-end;
     }
     > input:hover {
         cursor: pointer;

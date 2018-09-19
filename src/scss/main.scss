@@ -106,70 +106,58 @@ input, textarea {
     align-items: flex-end;
 }
 
-.inv, #inv-num {
+.inv {
     background: none;
     text-decoration: none;
-    padding-right: 10px;
     transition: all .2s linear;
     text-align: right;
     color: $main-dark;
-}
-
-.inv {
-    border: 1px solid $lBorder;
+    border: 1px solid transparent;
     width: 95%;
-    height: 55px;
     font-size: 3rem;
     margin-bottom: 10px;
+    padding-right: 10px;
     font-weight: 100;
 }
 
 .inv-num-group {
-    position: relative;
+    display: flex;
     background: none;
-    text-decoration: none;
     border: 1px solid $lBorder;
     border-radius: 4px;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 50%;
     > span {
-        position: absolute;
-        border-right: 1px solid $lBorder;
-        height: 100%;
-        font-size: 1.1rem;
-        padding: 10px 12px;
-        background-color: #F8F9F9;
+       font-size: 1.4rem;
+       padding: 10px;
+       background: #E6E9EA;
     }
-
-}
-
-#inv-num {
-    border: none;
-    border-left: 1px solid $lBorder;
-    height: 35px;
-    font-weight: 400;
-    font-size: 1rem;
+    > #inv-num {
+        position: relative;
+        text-align: right;
+        padding-right: 8px;
+        border: none;
+        font-size: 1rem;
+    }
 }
 
 .inv:hover, .inv:focus,
 .text-billto:hover, .text-billto:focus {
+    cursor: pointer;
     border: 1px solid $lBorder;
     border-radius: 4px;
     outline: none;
 }
 
 .text-from, .text-to {
-    border: none;
     border: 1px solid $lBorder;
-    height: 35px;
     font-weight: 400;
     font-size: 1rem;
     background: none;
-    text-decoration: none;
     padding-left: 10px;
     transition: all .2s linear;
     color: $main-dark;
+    height: 75px;
+    padding-top: 8px;
+    resize: none;
 }
 
 .text-billto {
@@ -185,10 +173,9 @@ input, textarea {
     color: $main-dark;
 }
 
-.text-from, .text-to {
-    height: 75px;
-    padding-top: 8px;
-    resize: none;
+.text-from:hover, .text-to:hover,
+#inv-num:hover {
+    cursor: pointer;
 }
 
 .dp-group {

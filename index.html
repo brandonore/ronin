@@ -55,18 +55,18 @@
     </div>
     <div class="mid-section">
         <div class="divider" id="divider">
-            <input type="text" value="Item" />
+            <input type="text" value="Item" class="itm-d" />
             <input type="text" value="Quantity" />
             <input type="text" value="Rate" />
-            <input type="text" value="Amount" />
+            <input type="text" value="Amount" class="amt-d" />
             <span id="close-btn"></span>
         </div>
         <div class="line-item">
-            <input type="text" class="i1" placeholder="Description of product or service..." />
-            <input type="text" class="i1" value="1" />
-            <input type="text" class="i1" id="rate-input" value="0" />
+            <input type="text" class="i1 itm-d" placeholder="Description of product or service..." />
+            <input type="text" maxlength="12" class="i1" value="1" />
+            <input type="text" maxlength="8" class="i1" id="rate-input" value="0" />
             <div id="rate-span" class="i1">$0.00</div>
-            <span class="i1"><i class="fal fa-times close-btn"></i></span>
+            <span class="close-btn"><i class="fal fa-times"></i></span>
         </div>
         <button id="line-item-btn"><i class="far fa-plus"></i> Line Item</button>
     </div>

@@ -1,3 +1,4 @@
+$(document).ready(() => {
 /*---------------------------------------
 * Requires and variables
 * ---------------------------------------*/
@@ -5,6 +6,7 @@ const ElectronTitlebarWindows = require('electron-titlebar-windows');
 const titlebar = new ElectronTitlebarWindows({draggable: true, backgroundColor: '#03c9a9'});
 const jsPDF = require('jspdf');
 const flatpickr = require('flatpickr');
+const numeral = require('numeral');
 let imgData = '';
 let width, height;
 let pdf = new jsPDF('p', 'mm', 'a4');
@@ -15,11 +17,11 @@ let fpickrOptions = {
     altFormat: 'F j, Y'
 }
 const lineItem = `<div class="line-item">
-                    <input type="text" placeholder="Description of product or service..." />
-                    <input type="text" value="1" />
-                    <input type="text" id="rate-input" value="0" />
-                    <div id="rate-span">$0.00</div>
-                    <span><i class="fal fa-times close-btn"></i></span>
+                    <input type="text" class="i1 itm-d" placeholder="Description of product or service..." />
+                    <input type="text" maxlength="12" class="i1" value="1" />
+                    <input type="text" maxlength="8" class="i1" id="rate-input" value="0" />
+                    <div id="rate-span" class="i1">$0.00</div>
+                    <span class="close-btn"><i class="fal fa-times"></i></span>
                 </div>`
 
 titlebar.appendTo(document.getElementById('title-bar'));
@@ -34,13 +36,20 @@ titlebar.on('close', function(e) {
 $('.cal').flatpickr(fpickrOptions);
 
 //add line item on btn click
-$('#line-item-btn').off('click').on('click', () => {
+$('#line-item-btn').on('click', () => {
     $(lineItem).insertBefore('#line-item-btn');
 })
 
+//remove line item on span click
+$(document).on('click', '.close-btn', function(e) {
+    $(this).parent().remove();
+    e.stopPropagation();
+})
+
 $('#rate-input').keyup(() => {
-    let val = $('#rate-input').val();
-    $('#rate-span').html(`$${val}`); 
+    
+    let val = numeral($('#rate-input').val()).format('$0,0.00');
+    $('#rate-span').html(val); 
 })
 
 //generate pdf on button click
@@ -104,3 +113,7 @@ function removeImg() {
     $('#remove-img').css('display', 'none');
     pdf = new jsPDF('p', 'mm', 'a4');
 }
+const formatNum = (val) => {
+    return val.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+}
+})
