@@ -48,7 +48,7 @@
                 </div>
                 <div class="balance-group">
                     <input type="text" value="Balance Due">
-                    <span>$500.50</span>
+                    <span id="balance">$500.50</span>
                 </div>
             </div>
         </div>
@@ -59,13 +59,13 @@
             <input type="text" value="Quantity" />
             <input type="text" value="Rate" />
             <input type="text" value="Amount" class="amt-d" />
-            <span id="close-btn"></span>
+            <span></span>
         </div>
         <div class="line-item">
-            <input type="text" class="i1 itm-d" placeholder="Description of product or service..." />
-            <input type="text" maxlength="12" class="i1" value="1" />
-            <input type="text" maxlength="8" class="i1" id="rate-input" value="0" />
-            <div id="rate-span" class="i1">$0.00</div>
+            <input type="text" class="itm-d" placeholder="Description of product or service..." />
+            <input type="text" maxlength="12" value="1" class="qty-input"/>
+            <input type="text" maxlength="8" class="rate-input" value="0" />
+            <div class="rate-span">$0.00</div>
             <span class="close-btn"><i class="fal fa-times"></i></span>
         </div>
         <button id="line-item-btn"><i class="far fa-plus"></i> Line Item</button>

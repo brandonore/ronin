@@ -18,7 +18,6 @@
         height: 35px;
         background: none;
         padding-right: 8px;
-        transition: all .2s linear;
         border: none;
         margin: 2px;
     }
@@ -41,14 +40,6 @@
     }
     > span {
         width: 5%;
-        > i {
-            font-size: 1.5rem;
-            color: $main-dark;
-        }
-        > i:hover {
-            cursor: pointer;
-            color: $main-red;
-        }
     }
 }
 
@@ -61,25 +52,38 @@
     > input {
         border: 1px solid $lBorder;
     }
-    > div, span {
-        font-family: 'Raleway', sans-serif;
-        display: flex;
-        align-items: center;
+    > .rate-span {
         border: none;
-    }
-    > #rate-span {
-        display: flex;
+        display: block;
+        font-family: 'Montserrat', sans-serif;
         text-align: right;
-        justify-content: flex-end;
+        line-height: 35px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 4px;
     }
     > input:hover {
         cursor: pointer;
         background: none;
     }
     > span {
+        display: flex;
+        align-items: center;
         visibility: hidden;
         padding: 0 4px;
+        > i {
+            font-size: 1.4rem;
+            color: $main-dark;
+        }
+        > i:hover {
+            cursor: pointer;
+            color: $main-red;
+        }
     }
+}
+
+.divider {
+    margin-bottom: 2px;
 }
 
 .line-item:hover .close-btn {

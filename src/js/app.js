@@ -10,6 +10,7 @@ const numeral = require('numeral');
 let imgData = '';
 let width, height;
 let pdf = new jsPDF('p', 'mm', 'a4');
+let sum = 0;
 let fpickrOptions = {
     minDate: 'today',
     dateFormat: 'Y-m-d',
@@ -17,10 +18,10 @@ let fpickrOptions = {
     altFormat: 'F j, Y'
 }
 const lineItem = `<div class="line-item">
-                    <input type="text" class="i1 itm-d" placeholder="Description of product or service..." />
-                    <input type="text" maxlength="12" class="i1" value="1" />
-                    <input type="text" maxlength="8" class="i1" id="rate-input" value="0" />
-                    <div id="rate-span" class="i1">$0.00</div>
+                    <input type="text" class="itm-d" placeholder="Description of product or service..." />
+                    <input type="text" maxlength="12" value="1" class="qty-input" />
+                    <input type="text" maxlength="8" class="rate-input" value="0" />
+                    <div class="rate-span">$0.00</div>
                     <span class="close-btn"><i class="fal fa-times"></i></span>
                 </div>`
 
@@ -43,14 +44,43 @@ $('#line-item-btn').on('click', () => {
 //remove line item on span click
 $(document).on('click', '.close-btn', function(e) {
     $(this).parent().remove();
+    $('.line-item').trigger('updateBalance');
     e.stopPropagation();
 })
 
-$('#rate-input').keyup(() => {
-    
-    let val = numeral($('#rate-input').val()).format('$0,0.00');
-    $('#rate-span').html(val); 
+//update span w/ formatted input value
+$(document).on('keyup', '.rate-input', function() {
+    let val = numeral($(this).val()).format('$0,0.00');
+    $(this).next().html(val);
+    $(this).trigger('updateBalance'); 
+}).on('keyup', '.qty-input', function() {
+    $(this).trigger('updateBalance');
 })
+
+$(document).on('focusout', '.rate-input', function() {
+    $(this).trigger('updateBalance');
+}).on('focusout', '.qty-input', function() {
+    $(this).trigger('updateBalance');
+})
+
+$(document).on('updateBalance', '.line-item', function() {
+    let total = $(this).find('.qty-input').val() * $(this).find('.rate-input').val();
+    $(this).find('.rate-span').html(numeral(total).format('$0,0.00'));
+})
+
+$(document).on('updateBalance', '.line-item', function() {
+    let total = 0;
+    let spans = $('.rate-span');
+    for(let i = 0; i < spans.length; i++) {
+        let val = $(spans[i]).text();
+        val = parseFloat(val.substr(1).replace(/,/g, ''));
+        console.log(val);
+        total += val;
+    }
+    $('#balance').text(numeral(total).format('$0,0.00'));
+})
+
+$('.line-item').trigger('updateBalance');
 
 //generate pdf on button click
 $('#gen').on('click', () => {

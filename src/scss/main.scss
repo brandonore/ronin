@@ -9,7 +9,7 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 body {
@@ -28,7 +28,6 @@ input, textarea {
 }
 
 .top-section {
-    // margin-top: 25px;
     padding: 25px;
     display: flex;
     justify-content: space-between;
@@ -179,6 +178,7 @@ input, textarea {
 }
 
 .dp-group {
+    // font-family: 'Raleway', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -207,10 +207,10 @@ input, textarea {
         padding: 4px 0 0 8px;
     }
     > div span {
+        font-family: 'Montserrat', sans-serif;
         padding-left: 8px;
     }
     .balance-group {
-        font-family: 'Raleway', sans-serif;
         background: lighten($lBorder, 15%);
         border-radius: 4px;
         font-weight: 600;
