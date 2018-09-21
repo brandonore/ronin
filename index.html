@@ -71,7 +71,18 @@
         <button id="line-item-btn"><i class="far fa-plus"></i> Line Item</button>
     </div>
     <div class="bottom-section">
-        <button id="gen">Generate!</button>
+        <div class="notes-group">
+            <input type="text" name="notes" class="text-notes" value="Notes">
+            <textarea type="text" rows="4" class="text-notes-ta" placeholder="Notes - any additional details"></textarea>
+            <input type="text" name="terms" class="text-terms" value="Terms">
+            <textarea type="text" rows="4" class="text-terms-ta" placeholder="Terms & Conditions - delivery details, fees, accepted payment methods"></textarea>
+        </div>
+        <div class="btn-group">
+            <button class="btn" id="btn-pdf"><i class="fal fa-arrow-to-bottom"></i>Save PDF</button>
+            <button class="btn"><i class="fal fa-paper-plane"></i>Send</button>
+            <button class="btn"><i class="fal fa-print"></i>Print</button>
+            <button class="btn"><i class="fal fa-info-circle"></i>About</button>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>window.jQuery = window.$ = module.exports</script>

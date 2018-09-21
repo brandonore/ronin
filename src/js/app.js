@@ -33,6 +33,7 @@ titlebar.on('close', function(e) {
 /*---------------------------------------
 * Handle clicks
 * ---------------------------------------*/
+
 //create instance of flatpickr
 $('.cal').flatpickr(fpickrOptions);
 
@@ -41,7 +42,7 @@ $('#line-item-btn').on('click', () => {
     $(lineItem).insertBefore('#line-item-btn');
 })
 
-//remove line item on span click
+//remove line item on span click and update balance
 $(document).on('click', '.close-btn', function(e) {
     $(this).parent().remove();
     $('.line-item').trigger('updateBalance');
@@ -57,17 +58,20 @@ $(document).on('keyup', '.rate-input', function() {
     $(this).trigger('updateBalance');
 })
 
+//update balance on focusout
 $(document).on('focusout', '.rate-input', function() {
     $(this).trigger('updateBalance');
 }).on('focusout', '.qty-input', function() {
     $(this).trigger('updateBalance');
 })
 
+//update balance when quantity changes
 $(document).on('updateBalance', '.line-item', function() {
     let total = $(this).find('.qty-input').val() * $(this).find('.rate-input').val();
     $(this).find('.rate-span').html(numeral(total).format('$0,0.00'));
 })
 
+//update balance
 $(document).on('updateBalance', '.line-item', function() {
     let total = 0;
     let spans = $('.rate-span');
@@ -83,7 +87,7 @@ $(document).on('updateBalance', '.line-item', function() {
 $('.line-item').trigger('updateBalance');
 
 //generate pdf on button click
-$('#gen').on('click', () => {
+$('#btn-pdf').on('click', () => {
     printPDF();
 })
 
@@ -103,6 +107,7 @@ document.getElementById('file').addEventListener('change', readURL, true);
 /*---------------------------------------
 * Functions
 * ---------------------------------------*/
+
 // write data to pdf document
 const printPDF = () => {
     // pdf.text(15, 10, 'Yay pdf!');
