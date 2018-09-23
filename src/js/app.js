@@ -34,6 +34,24 @@ titlebar.on('close', function(e) {
 * Handle clicks
 * ---------------------------------------*/
 
+
+
+$('#btn-about').on('click', function(e) {
+    let modal = new Custombox.modal({
+        content: {
+            effect: 'fadein',
+            target: '#modal',
+            close: true
+        },
+        overlay: {
+            active: true,
+            color: '#000',
+            opacity: .48
+        }
+    })
+    modal.open();
+})
+
 //create instance of flatpickr
 $('.cal').flatpickr(fpickrOptions);
 
@@ -46,6 +64,7 @@ $('#line-item-btn').on('click', () => {
 $(document).on('click', '.close-btn', function(e) {
     $(this).parent().remove();
     $('.line-item').trigger('updateBalance');
+    checkSpans();
     e.stopPropagation();
 })
 
@@ -78,7 +97,6 @@ $(document).on('updateBalance', '.line-item', function() {
     for(let i = 0; i < spans.length; i++) {
         let val = $(spans[i]).text();
         val = parseFloat(val.substr(1).replace(/,/g, ''));
-        console.log(val);
         total += val;
     }
     $('#balance').text(numeral(total).format('$0,0.00'));
@@ -140,7 +158,7 @@ function readURL() {
 }
 
 //remove img
-function removeImg() {
+const removeImg = () => {
     document.getElementById('file').value = '';
     $('#img-select').removeAttr('style');
     $('#img-select').css({'border': 'solid 1px #bdc3c7', 'background-color': '#F8F9F9'});
@@ -148,7 +166,13 @@ function removeImg() {
     $('#remove-img').css('display', 'none');
     pdf = new jsPDF('p', 'mm', 'a4');
 }
-const formatNum = (val) => {
-    return val.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+
+//check if all line items are removed and reset balance
+const checkSpans = () => {
+    let spans = $('.rate-span');
+    if(spans.length === 0) {
+        total = 0;
+        $('#balance').text(numeral(total).format('$0,0.00'));
+    }
 }
 })

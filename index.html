@@ -10,9 +10,28 @@
     <link href="src/fa/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+    <link rel="stylesheet" type="text/css" href="src/custombox/custombox.min.css">
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
+    <div id="modal">
+        <div class="modal-content">
+            <div class="logo"><img src="src/img/logo.png" alt="logo"></div>
+            <div class="modal-text">
+                <p>Created by: Brandon Ore</p>
+                <p>Technologies used: Electron, jsPDF, numeral, custombox</p>
+                <P>Version 1.0.0</P>
+            </div>
+            <div class="modal-donate">
+                <p>Like the app? Feel free to donate!</p>
+                Paypal BTC
+            </div>
+            <div class="modal-social">
+                <i class="fab fa-github-alt"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+    </div>
     <div id="title-bar"></div>
     <div class="top-section">
         <div class="top-col-1">
@@ -68,7 +87,7 @@
             <div class="rate-span">$0.00</div>
             <span class="close-btn"><i class="fal fa-times"></i></span>
         </div>
-        <button id="line-item-btn"><i class="far fa-plus"></i> Line Item</button>
+        <button id="line-item-btn"><i class="far fa-plus"></i> Add Line</button>
     </div>
     <div class="bottom-section">
         <div class="notes-group">
@@ -81,11 +100,12 @@
             <button class="btn" id="btn-pdf"><i class="fal fa-arrow-to-bottom"></i>Save PDF</button>
             <button class="btn"><i class="fal fa-paper-plane"></i>Send</button>
             <button class="btn"><i class="fal fa-print"></i>Print</button>
-            <button class="btn"><i class="fal fa-info-circle"></i>About</button>
+            <button class="btn" id="btn-about"><i class="fal fa-info-circle"></i>About</button>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>window.jQuery = window.$ = module.exports</script>
+    <script src="src/custombox/custombox.min.js"></script>
     <script src="src/js/app.js"></script>
 </body>
 </html>

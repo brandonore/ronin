@@ -12,9 +12,10 @@
     color: #fff;
     background: $main-green;
     border: 2px solid transparent;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: all .2s linear;
     width: 165px;
+    border-radius: 4px;
     > i {
         color: #fff;
         padding-right: 12px;
@@ -68,5 +69,5 @@ input:focus, textarea:focus {
 
 .btn-group {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
