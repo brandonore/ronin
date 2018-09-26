@@ -1,7 +1,6 @@
 const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 require('electron-reload')(__dirname);
-const PDFWindow = require('electron-pdf-window');
   
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
