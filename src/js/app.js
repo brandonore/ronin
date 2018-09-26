@@ -2,14 +2,15 @@ $(document).ready(() => {
 /*---------------------------------------
 * Requires and variables
 * ---------------------------------------*/
+const { ipcRenderer } = require('electron');
 const ElectronTitlebarWindows = require('electron-titlebar-windows');
 const titlebar = new ElectronTitlebarWindows({draggable: true, backgroundColor: '#03c9a9'});
-const jsPDF = require('jspdf');
+// const jsPDF = require('jspdf');
 const flatpickr = require('flatpickr');
 const numeral = require('numeral');
 let imgData = '';
 let width, height;
-let pdf = new jsPDF('p', 'mm', 'a4');
+
 let sum = 0;
 let fpickrOptions = {
     minDate: 'today',
@@ -30,11 +31,14 @@ titlebar.on('close', function(e) {
     console.log('close');
 });
 
+let preview = $('#preview-container');
 /*---------------------------------------
 * Handle clicks
 * ---------------------------------------*/
 
-
+$('.fa-btc').on('click', function() {
+    $('.btc-addy').slideToggle(200);
+})
 
 $('#btn-about').on('click', function(e) {
     let modal = new Custombox.modal({
@@ -106,7 +110,16 @@ $('.line-item').trigger('updateBalance');
 
 //generate pdf on button click
 $('#btn-pdf').on('click', () => {
-    printPDF();
+    savePDF();
+})
+
+//print pdf
+$('#btn-print').click(function() {
+    printPDF(true);
+})
+
+$('.fa-paypal').on('click', () => {
+    window.open('https://www.paypal.me/y2ktheory', '_blank', 'frame=true');
 })
 
 //clear img
@@ -127,11 +140,36 @@ document.getElementById('file').addEventListener('change', readURL, true);
 * ---------------------------------------*/
 
 // write data to pdf document
-const printPDF = () => {
-    // pdf.text(15, 10, 'Yay pdf!');
-    pdf.addImage(imgData, 'PNG', 10, 5, width * 0.05, height * 0.05);
+const savePDF = () => {
+    let pdf = new jsPDF('p', 'mm', 'a4');
+    pdf.text(15, 10, 'Yay pdf!');
+    // pdf.addImage(imgData, 'PNG', 10, 5, width * 0.05, height * 0.05);
     pdf.save(`${$('#inv-num').val()}.pdf`);
     removeImg();
+}
+
+//write data to pdf and prompt print dialog
+function printPDF(genPreview) {
+    let pdf = new jsPDF('p', 'mm', 'a4');
+    pdf.text(15, 10, 'Yay pdf!');
+    pdf.addImage(imgData, 'PNG', 10, 5, width * 0.05, height * 0.05);
+    let str = pdf.output('datauristring');
+    if(genPreview) {
+        callPreviewWindow(`${str}`);
+    } else {
+        pdf.save('test.pdf');
+    }
+}
+
+//use ipcrenderer.send to send pdf url to new window
+function callPreviewWindow(args) {
+    return new Promise(resolve => {
+        ipcRenderer.send('click', args);
+        ipcRenderer.on('reply', (event, result) => {
+            resolve(result);
+        })
+    })
+    
 }
 
 //select img and set background of container

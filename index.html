@@ -24,7 +24,9 @@
             </div>
             <div class="modal-donate">
                 <p>Like the app? Feel free to donate!</p>
-                Paypal BTC
+                <i class="fab fa-paypal"></i>
+                <i class="fab fa-btc"></i>
+                <div class="btc-addy">38rpNtoBQLzmpZKi1eNKSzFd1uy7LCfYGv</div>
             </div>
             <div class="modal-social">
                 <i class="fab fa-github-alt"></i>
@@ -99,13 +101,14 @@
         <div class="btn-group">
             <button class="btn" id="btn-pdf"><i class="fal fa-arrow-to-bottom"></i>Save PDF</button>
             <button class="btn"><i class="fal fa-paper-plane"></i>Send</button>
-            <button class="btn"><i class="fal fa-print"></i>Print</button>
+            <button class="btn" id="btn-print"><i class="far fa-eye"></i></i>Preview</button>
             <button class="btn" id="btn-about"><i class="fal fa-info-circle"></i>About</button>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>window.jQuery = window.$ = module.exports</script>
     <script src="src/custombox/custombox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
     <script src="src/js/app.js"></script>
 </body>
 </html>

@@ -1,14 +1,29 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 require('electron-reload')(__dirname);
+const PDFWindow = require('electron-pdf-window');
   
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
   let win
   
+  ipcMain.on('click', function(event, arg) {
+    if(arg) {
+        const nwin = new BrowserWindow({
+            width: 800,
+            height: 600,
+            webPreferences: {plugins: true}
+          })
+          nwin.loadURL(arg);
+          event.sender.send('reply', 'test');
+    } else {
+        event.sender.send('reply', 'no arg supplied');
+    }
+  });
+
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 1000, height: 1200, frame: false})
+    win = new BrowserWindow({width: 1000, height: 1200, frame: false, webPreferences: {nativeWindowOpen: true}})
   
     // and load the index.html of the app.
     // win.loadFile('index.html')
@@ -16,7 +31,7 @@ require('electron-reload')(__dirname);
   
     // Open the DevTools.
     win.webContents.openDevTools()
-  
+
     // Emitted when the window is closed.
     win.on('closed', () => {
       // Dereference the window object, usually you would store windows
@@ -50,3 +65,4 @@ require('electron-reload')(__dirname);
   
   // In this file you can include the rest of your app's specific main process
   // code. You can also put them in separate files and require them here.
+  

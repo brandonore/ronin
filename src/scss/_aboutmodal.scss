@@ -40,10 +40,11 @@
     margin-bottom: 30px;
     text-align: center;
     background: #fff;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     color: $main-green;
     border-radius: 4px;
     opacity: .75;
+    transition: all 1s linear;
     > p {
         font-size: 1.2rem;
         padding-bottom: 10px;
@@ -54,12 +55,30 @@
     text-align: center;
     > i {
         color: $main-green;
-        font-size: 2.5rem;
+        font-size: 2rem;
         padding: 10px;
         transition: all .2s linear;
     }
     > i:hover {
         cursor: pointer;
         color: #fff;
+        opacity: .75;
     }
+}
+
+.fa-paypal, .fa-btc {
+    font-size: 2rem;
+    padding: 0 10px 10px 0;
+    transition: all .2s linear;
+}
+
+.fa-paypal:hover, .fa-btc:hover {
+    cursor: pointer;
+    opacity: .75;
+}
+
+.btc-addy {
+    font-size: 1.2rem;
+    display: none;
+    padding-bottom: 10px;
 }

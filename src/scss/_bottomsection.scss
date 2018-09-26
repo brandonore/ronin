@@ -6,7 +6,7 @@
 }
 
 .btn {
-    margin-top: 150px;
+    margin-top: 50px;
     padding: 10px 20px;
     font-weight: 400;
     color: #fff;
@@ -44,6 +44,7 @@ input:focus, textarea:focus {
     height: 275px;
     > input {
         height: 35px;
+        margin-bottom: -1px;
         padding-left: 8px;
         background: none;
         border: 1px solid transparent;
