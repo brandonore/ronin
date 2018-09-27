@@ -221,3 +221,9 @@ input, textarea {
         }
     }
 }
+
+#preview-container {
+    border: 1px solid $main-dark;
+    width: 100vw;
+    height: 100vh;
+}

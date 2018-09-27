@@ -8,12 +8,16 @@ require('electron-reload')(__dirname);
   
   ipcMain.on('click', function(event, arg) {
     if(arg) {
-        const nwin = new BrowserWindow({
-            width: 800,
-            height: 600,
+        const pwin = new BrowserWindow({
+            width: 1240,
+            height: 1123,
+            frame: false,
             webPreferences: {plugins: true}
           })
-          nwin.loadURL(arg);
+          pwin.loadURL(`file://${__dirname}/preview.html`);
+          pwin.webContents.on('did-finish-load', () => {
+            pwin.webContents.send('update-iframe', arg);
+        });
           event.sender.send('reply', 'test');
     } else {
         event.sender.send('reply', 'no arg supplied');
@@ -22,7 +26,7 @@ require('electron-reload')(__dirname);
 
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 1000, height: 1200, frame: false, webPreferences: {nativeWindowOpen: true}})
+    win = new BrowserWindow({width: 1354, height: 1123, frame: false, webPreferences: {nativeWindowOpen: true}})
   
     // and load the index.html of the app.
     // win.loadFile('index.html')

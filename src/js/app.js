@@ -45,12 +45,18 @@ $('#btn-about').on('click', function(e) {
         content: {
             effect: 'fadein',
             target: '#modal',
-            close: true
+            close: true,
+            speedIn: 200,
+            speedOut: 200,
+            delay: 0
         },
         overlay: {
             active: true,
             color: '#000',
             opacity: .48
+        },
+        loader: {
+            active: false
         }
     })
     modal.open();
@@ -141,7 +147,8 @@ document.getElementById('file').addEventListener('change', readURL, true);
 
 // write data to pdf document
 const savePDF = () => {
-    let pdf = new jsPDF('p', 'mm', 'a4');
+    let pdf = new jsPDF('p', 'px', 'a4');
+    pdf.setTextColor(255, 255, 255);
     pdf.text(15, 10, 'Yay pdf!');
     // pdf.addImage(imgData, 'PNG', 10, 5, width * 0.05, height * 0.05);
     pdf.save(`${$('#inv-num').val()}.pdf`);
@@ -150,9 +157,13 @@ const savePDF = () => {
 
 //write data to pdf and prompt print dialog
 function printPDF(genPreview) {
-    let pdf = new jsPDF('p', 'mm', 'a4');
-    pdf.text(15, 10, 'Yay pdf!');
-    pdf.addImage(imgData, 'PNG', 10, 5, width * 0.05, height * 0.05);
+    let pdf = new jsPDF('p', 'px', 'a4');
+    pdf.setFillColor(46, 49, 49);
+    pdf.roundedRect(100, 150, 250, 30, 4, 4, 'F');
+    pdf.setTextColor(255, 255, 255);
+    pdf.text(120, 170, 'Yay pdf!');
+    // pdf.addImage(imgData, 'PNG', 10, 5, width * 0.05, height * 0.05);
+    
     let str = pdf.output('datauristring');
     if(genPreview) {
         callPreviewWindow(`${str}`);
