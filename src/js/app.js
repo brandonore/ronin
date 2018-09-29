@@ -2,15 +2,14 @@ $(document).ready(() => {
 /*---------------------------------------
 * Requires and variables
 * ---------------------------------------*/
-const { ipcRenderer } = require('electron');
+const { ipcRenderer, remote } = require('electron');
 const ElectronTitlebarWindows = require('electron-titlebar-windows');
+const win = remote.getCurrentWindow();
 const titlebar = new ElectronTitlebarWindows({draggable: true, backgroundColor: '#03c9a9'});
-// const jsPDF = require('jspdf');
 const flatpickr = require('flatpickr');
 const numeral = require('numeral');
 let imgData = '';
 let width, height;
-
 let sum = 0;
 let fpickrOptions = {
     minDate: 'today',
@@ -24,14 +23,36 @@ const lineItem = `<div class="line-item">
                     <input type="text" maxlength="8" class="rate-input" value="0" />
                     <div class="rate-span">$0.00</div>
                     <span class="close-btn"><i class="fal fa-times"></i></span>
-                </div>`
+                </div>`;
 
+
+/*---------------------------------------
+* Titlebar actions
+* ---------------------------------------*/
 titlebar.appendTo(document.getElementById('title-bar'));
+
+//close app
 titlebar.on('close', function(e) {
-    console.log('close');
+    win.close();
 });
 
-let preview = $('#preview-container');
+//minimize app
+titlebar.on('minimize', (e) => {
+    win.minimize();
+})
+
+//maximize app
+titlebar.on('fullscreen', (e) => {
+    win.maximize();
+})
+
+//unmaximize app
+titlebar.on('maximize', (e) => {
+    if(win.isMaximized) {
+        win.unmaximize();
+    }
+})
+
 /*---------------------------------------
 * Handle clicks
 * ---------------------------------------*/
