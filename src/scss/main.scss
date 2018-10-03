@@ -16,8 +16,8 @@ html {
 body {
     background: #fff;
     font-size: 62.5%;
-    overflow: visible !important;
-    padding-right: 0 !important;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -27,6 +27,22 @@ h1 {
 }
 
 input, textarea {
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $main-green;
+    border-radius: 4px;
+    height: 30px;
+}
+
+::-webkit-scrollbar-track {
     border-radius: 4px;
 }
 

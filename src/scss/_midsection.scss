@@ -19,7 +19,6 @@
         background: none;
         padding-right: 8px;
         border: none;
-        margin: 2px;
     }
     > .itm-d {
         text-align: left;
@@ -48,6 +47,7 @@
     transition: all .2s linear;
     > input, span, div {
         color: $main-dark;
+        margin: 2px;
     }
     > input {
         border: 1px solid $lBorder;

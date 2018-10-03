@@ -10,7 +10,6 @@ const flatpickr = require('flatpickr');
 const numeral = require('numeral');
 let imgData = '';
 let width, height;
-let sum = 0;
 let fpickrOptions = {
     minDate: 'today',
     dateFormat: 'Y-m-d',
@@ -159,6 +158,8 @@ $('.fa-upload').on('click', () => {
     $('input[type="file"]').trigger('click');
 })
 
+
+
 //img upload 
 document.getElementById('file').addEventListener('change', readURL, true);
 
@@ -245,4 +246,8 @@ const checkSpans = () => {
         $('#balance').text(numeral(total).format('$0,0.00'));
     }
 }
-})
+
+}) //end
+
+
+
